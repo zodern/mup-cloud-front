@@ -19,7 +19,7 @@ To avoid that scenario, this plugin uploads the static files to s3 before each d
 
 ## Instructions
 
-1) Install with `npm i --save-dev mup-cloud-front` and `meteor add zodern:meteor-cdn`
+1) Install with `npm i --save-dev mup-cloud-front` and `meteor add zodern:cdn`
 2) Create/update an IAM user. The access type should be `Programmatic access`. It needs the following permissions:
 - `CloudFrontFullAccess`. After the CloudFront distribution is created, you can replace it with `CloudFrontReadOnlyAccess`
 - If you are not using the IAM user for `mup-aws-beanstalk`, add the `AmazonS3FullAccess` permission.
