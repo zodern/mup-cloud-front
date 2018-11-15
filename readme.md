@@ -7,7 +7,9 @@ Features:
 - Automates setting up the Cloud Front distribution and S3 bucket
 - Sets CDN_URL environment variable to correct version
 
-Requires the [zodern/meteor-cdn]() meteor package.
+Requires the [zodern:cdn](https://atmospherejs.com/zodern/cdn) package.
+
+Compatible with Meteor 1.7.0.1 and newer.
 
 ## Why
 
