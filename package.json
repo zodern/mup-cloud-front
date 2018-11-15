@@ -1,6 +1,6 @@
 {
   "name": "mup-cloud-front",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Plugin for Meteor Up to setup CloudFront",
   "scripts": {
     "prepare": "npm run build",
