@@ -32,7 +32,7 @@ module.exports = {
   cloudFront: {
     // S3 Bucket. Created if it doesn't exist. Multiple apps can safely share the bucket.
     // Random numbers might be added to the name to ensure it is unique.
-    bucket: 'name-of-s3-bucket'
+    bucketName: 'name-of-s3-bucket'
 
     // optional if using mup-aws-beanstalk, otherwise it is required
     auth: {
@@ -63,7 +63,7 @@ module.exports = {
 
   cloudFront: {
     // S3 Bucket. Created if it doesn't exist. Multiple apps can safely share the bucket
-    bucket: 'name-of-s3-bucket'
+    bucketName: 'name-of-s3-bucket'
     // (optional) aws region for the s3 bucket
     region: 'us-east-1',
 
