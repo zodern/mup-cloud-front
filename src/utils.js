@@ -3,6 +3,7 @@ import random from 'random-seed';
 import uuid from 'uuid';
 import os from 'os';
 import fs from 'fs';
+import mime from 'mime-types';
 
 export function aws(api) {
   const {
@@ -345,6 +346,7 @@ export function uploadFile({
       Bucket: bucketName,
       Body: fs.createReadStream(filePath),
       Key: bucketKey,
+      ContentType: mime.lookup(filePath),
     });
 
     uploader.send((err, result) => {
