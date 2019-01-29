@@ -1,3 +1,7 @@
+## 0.2.1 - January 29, 2019
+
+- Fix error when file has an unknown content type
+
 ## 0.2.0 - December 7, 2018
 
 - Set ContentType for uploaded files so CloudFront will compress them
