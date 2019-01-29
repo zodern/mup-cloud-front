@@ -346,7 +346,7 @@ export function uploadFile({
       Bucket: bucketName,
       Body: fs.createReadStream(filePath),
       Key: bucketKey,
-      ContentType: mime.lookup(filePath),
+      ContentType: mime.lookup(filePath) || 'application/octet-stream',
     });
 
     uploader.send((err, result) => {
