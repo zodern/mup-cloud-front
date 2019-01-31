@@ -179,7 +179,7 @@ export async function ensureDistribution(api, bucketName) {
     await cloudFront.createDistribution({
       DistributionConfig: {
         CallerReference: `${app.name}-${bucketName}`,
-        Comment: 'Created by mup-cloud-front',
+        Comment: `Created for ${app.name} by mup-cloud-front`,
         DefaultCacheBehavior: {
           ForwardedValues: {
             Cookies: {
