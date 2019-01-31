@@ -94,12 +94,11 @@ export async function ensureOriginAccessIdentity(api, bucketName) {
   const {
     cloudFront,
   } = aws(api);
-  const appName = api.getConfig().app.name;
 
   const params = {
     CloudFrontOriginAccessIdentityConfig: {
-      CallerReference: `${appName}-${bucketName}`,
-      Comment: `Created by mup-cloud-front for the app ${appName}`,
+      CallerReference: `mup-cloud-front-${bucketName}`,
+      Comment: `Created for the bucket ${bucketName} by mup-cloud-front `,
     },
   };
   const result = await cloudFront.createCloudFrontOriginAccessIdentity(params).promise();
