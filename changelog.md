@@ -1,3 +1,7 @@
+## 0.2.2 - August 14, 2020
+
+- Fix compatibility with Meteor Up 1.5
+
 ## 0.2.1 - January 29, 2019
 
 - Fix error when file has an unknown content type
