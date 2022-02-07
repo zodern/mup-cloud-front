@@ -1,5 +1,8 @@
 import fs from 'fs';
+import _chunk from 'lodash/chunk';
 import { ensureBucketExists, ensureDistribution, tmpBuildPath, uploadFile, aws, createFileList, logPromiseProgress, injectVersion, distributionUrl, ensureOriginAccessIdentity } from './utils';
+
+const DELETE_CHUNK_SIZE = 500;
 
 export async function setup(api) {
   if (!api.getConfig().cloudFront) {
@@ -116,12 +119,18 @@ export async function clean(api) {
 
   if (toRemove.length > 0) {
     console.log(`  Deleting ${toRemove.length} files`);
-    await s3.deleteObjects({
-      Bucket: bucketName,
-      Delete: {
-        Objects: toRemove.map(key => ({ Key: key })),
-      },
-    }).promise();
+    const chunks = _chunk(toRemove, DELETE_CHUNK_SIZE);
+    // eslint-disable-next-line no-restricted-syntax
+    for (const chunk of chunks) {
+      // eslint-disable-next-line no-await-in-loop
+      await s3.deleteObjects({
+        Bucket: bucketName,
+        Delete: {
+          Objects: chunk.map(key => ({ Key: key })),
+        },
+      }).promise();
+      console.log(` Removed ${chunk.length} files`);
+    }
   }
 }
 
