@@ -1,5 +1,5 @@
 {
-  "name": "sk-mup-cloud-front",
+  "name": "mup-cloud-front",
   "version": "0.2.5",
   "description": "Plugin for Meteor Up to setup CloudFront",
   "scripts": {
