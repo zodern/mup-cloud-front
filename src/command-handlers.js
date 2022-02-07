@@ -120,6 +120,7 @@ export async function clean(api) {
   if (toRemove.length > 0) {
     console.log(`  Deleting ${toRemove.length} files`);
     const chunks = _chunk(toRemove, DELETE_CHUNK_SIZE);
+    let numRemovedFiles = 0;
     // eslint-disable-next-line no-restricted-syntax
     for (const chunk of chunks) {
       // eslint-disable-next-line no-await-in-loop
@@ -129,7 +130,8 @@ export async function clean(api) {
           Objects: chunk.map(key => ({ Key: key })),
         },
       }).promise();
-      console.log(` Removed ${chunk.length} files`);
+      numRemovedFiles += chunk.length;
+      console.log(` Removed ${numRemovedFiles} files`);
     }
   }
 }
